@@ -1,4 +1,4 @@
--- API CALLS
+-- API CALLS, THIS IS REMASTERED
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/library.lua"))()
 local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/api.lua"))()
@@ -1238,7 +1238,7 @@ game:GetService("Workspace").NPCBees.ChildRemoved:Connect(function(v)
     end
 end)
 
-task.spawn(function() while task.wait(1) do
+task.spawn(function() while task.wait(.2) do
     if not temptable.converting then
         if kocmoc.toggles.autosamovar then
             game:GetService("ReplicatedStorage").Events.ToyEvent:FireServer("Samovar")
