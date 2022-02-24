@@ -1,4 +1,4 @@
--- API CALLS, REMASTERED
+-- API CALLS
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/library.lua"))()
 local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/api.lua"))()
@@ -1123,12 +1123,14 @@ task.spawn(function() while task.wait() do
             repeat
                 converthoney()
             until game.Players.LocalPlayer.CoreStats.Pollen.Value == 0
+                sendwebhook()
             if kocmoc.toggles.convertballoons and gethiveballoon() then
                 task.wait(6)
                 repeat
                     task.wait()
                     converthoney()
                 until gethiveballoon() == false or not kocmoc.toggles.convertballoons
+                sendwebhook()
             end
             temptable.converting = false
             temptable.act = temptable.act + 1
