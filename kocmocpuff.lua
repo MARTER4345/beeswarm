@@ -736,8 +736,7 @@ function sendwebhook()
             {
                 ["title"] = "**Kocmoc script. Modified by beta uwu.**",
                 ["description"] = "Name: " .. game.Players.LocalPlayer.DisplayName..
-                "\nCurrent Honey: **"..Datahoney.."**"
-                "\nTotal Gained Honey: "..api.suffixstring(temptable.honeycurrent - temptable.honeystart),
+                "\nCurrent Honey: **"..Datahoney.."**",
                 ["type"] = "rich",
                 ["color"] = tonumber(0x7269da),
                 ["image"] = {
