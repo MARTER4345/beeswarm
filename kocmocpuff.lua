@@ -1122,7 +1122,6 @@ task.spawn(function() while task.wait() do
             repeat
                 converthoney()
             until game.Players.LocalPlayer.CoreStats.Pollen.Value == 0
-                sendwebhook()
             if kocmoc.toggles.convertballoons and gethiveballoon() then
                 task.wait(6)
                 repeat
