@@ -1,4 +1,4 @@
--- API CALLS, THIS IS REMASTERED
+-- API CALLS, REMASTERED
 
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/library.lua"))()
 local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/Boxking776/kocmoc/main/api.lua"))()
@@ -725,6 +725,38 @@ local function isWindshrineOnCooldown()
     local cooldown = 3600 - (require(game.ReplicatedStorage.OsTime)() - (require(game.ReplicatedStorage.StatTools).GetLastCooldownTime(v1, "WindShrine")))
     if cooldown > 0 then isOnCooldown = true end
     return isOnCooldown
+end
+
+function sendwebhook()
+    if _G.Webhook then
+        local Datahoney = game.Players.LocalPlayer.PlayerGui.ScreenGui.MeterHUD.HoneyMeter.Bar.TextLabel.Text
+        local data = {
+        ["content"] = "", 
+        ["embeds"] = {
+            {
+                ["title"] = "**Kocmoc script. Modified by beta uwu.**",
+                ["description"] = "Name: " .. game.Players.LocalPlayer.DisplayName..
+                "\nCurrent Honey: **"..Datahoney.."**"
+                "\nTotal Gained Honey: "..api.suffixstring(temptable.honeycurrent - temptable.honeystart),
+                ["type"] = "rich",
+                ["color"] = tonumber(0x7269da),
+                ["image"] = {
+                    ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+                        tostring(game:GetService("Players").LocalPlayer.Name)
+                }
+            }
+        }
+        }
+        local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+        local headers = {
+        ["content-type"] = "application/json"
+        }
+        request = http_request or request or HttpPost or syn.request
+        local sendhook = {Url = _G.Webhook, Body = newdata, Method = "POST", Headers = headers}
+        request(sendhook)
+        print("Sent webhook successfully!")
+    end
 end
 
 local Config = { WindowName = "Kocmoc v"..temptable.version.." Remastered", Color = Color3.fromRGB(164, 84, 255), Keybind = Enum.KeyCode.Semicolon}
