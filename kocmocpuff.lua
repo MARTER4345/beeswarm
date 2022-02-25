@@ -1128,8 +1128,8 @@ task.spawn(function() while task.wait() do
                     task.wait()
                     converthoney()
                 until gethiveballoon() == false or not kocmoc.toggles.convertballoons
-                sendwebhook()
             end
+            sendwebhook()
             temptable.converting = false
             temptable.act = temptable.act + 1
             task.wait(6)
