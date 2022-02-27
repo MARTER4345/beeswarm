@@ -1,4 +1,4 @@
-
+--If you want to change this script, contact me on discord: _MARTER_#4345
 --Anti-afk
 	local vu = game:GetService("VirtualUser")
 	game:GetService("Players").LocalPlayer.Idled:connect(function()
