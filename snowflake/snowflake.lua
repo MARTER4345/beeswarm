@@ -64,7 +64,7 @@ if _G.Webhook then
     ["content"] = "", 
     ["embeds"] = {
         {
-            ["title"] = "**Snowflakes script. Made by beta (\_MARTER\_#4345).**",
+            ["title"] = "**Snowflakes script. Made by beta.**",
             ["description"] = "Name: " .. game.Players.LocalPlayer.DisplayName..
             "\nInventory: **<:snowflake:894662074096058388>"..rtsg().Eggs.Snowflake.." snowflakes** and **<:gingerbear:894655872201027714>"..rtsg().Eggs.GingerbreadBear.." Gingerbread Bears**.",
             ["type"] = "rich",
