@@ -96,8 +96,13 @@ local bssapi = loadstring(game:HttpGet("https://raw.githubusercontent.com/not-we
 print("Removing decorations. This should take around 20 seconds")
 spawn(function()
 	for _, part in next, workspace:FindFirstChild("FieldDecos"):GetDescendants() do if part:IsA("BasePart") then part.CanCollide = false part.Transparency = part.Transparency < 0.5 and 0.5 or part.Transparency task.wait() end end
-	for _, part in next, workspace:FindFirstChild("Decorations"):GetDescendants() do if part:IsA("BasePart") and (part.Parent.Name == "Bush" or part.Parent.Name == "Blue Flower") then part.CanCollide = false part.Transparency = part.Transparency < 0.5 and 0.5 or part.Transparency task.wait() end end
+	for _, part in next, workspace:FindFirstChild("Decorations"):GetDescendants() do if part:IsA("BasePart") and (part.Parent.Name == "Bush" or part.Parent.Name == "Blue Flower 1" or part.Parent.Name == "Blue Flower 2" or part.Parent.Name == "Blue Flower 3" or part.Parent.Name == "Blue Flower 4" or part.Parent.Name == "Blue Flower 5") then part.CanCollide = false part.Transparency = part.Transparency < 0.5 and 0.5 or part.Transparency task.wait() end end
 	for i,v in next, workspace.Decorations.Misc:GetDescendants() do if v.Parent.Name == "Mushroom" then v.CanCollide = false v.Transparency = 0.5 end end
+	--extra remove
+	for _, part in next, workspace.Decorations.JumpGames:GetDescendants() do if part:IsA("BasePart") then part.CanCollide = false part.Transparency = part.Transparency < 0.5 and 0.5 or part.Transparency task.wait() end end
+	for _, part in next, workspace.Honey:GetChildren() do if part:IsA("BasePart") and part.Parent.Name == "Wings" then part.CanCollide = false part.Transparency = part.Transparency < 0.5 and 0.5 or part.Transparency task.wait() end end
+    	game.workspace:FindFirstChild("Honey").CanCollide = false game.workspace:FindFirstChild("Honey").Transparency = 0.5
+    	for _, part in next, workspace.Gates:FindFirstChild("15 Bee Gate"):GetDescendants() do if part:IsA("BasePart") then part.CanCollide = false part.Transparency = part.Transparency < 0.5 and 0.5 or part.Transparency task.wait() end end
 end)
 
 --Tp to gingerbread, input token ids into rares = {} section
