@@ -1070,7 +1070,7 @@ task.spawn(function() while task.wait() do
                 fieldposition = fieldpos.Position
             else
                 temptable.magnitude = 25 
-                fieldpos = api.partwithnamepart("Common", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame
+		fieldpos = api.getbiggestmodel(game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame --api.partwithnamepart("Common", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame add this back if no suppo
                 fieldposition = fieldpos.Position
             end
         end
