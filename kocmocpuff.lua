@@ -1110,7 +1110,8 @@ task.spawn(function() while task.wait() do
                 temptable.magnitude = 25 
                 fieldpos = api.partwithnamepart("Rare", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame
                 fieldposition = fieldpos.Position
-                --if _G.Puffwebhook then temptable.puffhook.type = "Rare" temptable.puffhook.level = "WIP" temptable.puffhook.CFrame = api.partwithnamepart("Rare", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame task.wait() sendpuffhook() end
+                if _G.raretrue then if _G.Puffwebhook then temptable.puffhook.type = "Rare" temptable.puffhook.level = "WIP" temptable.puffhook.CFrame = api.partwithnamepart("Rare", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame task.wait() sendpuffhook() end end
+		--if _G.Puffwebhook then temptable.puffhook.type = "Rare" temptable.puffhook.level = "WIP" temptable.puffhook.CFrame = api.partwithnamepart("Rare", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame task.wait() sendpuffhook() end
             else
                 temptable.magnitude = 25 
 		fieldpos = api.getbiggestmodel(game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame --api.partwithnamepart("Common", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame add this back if no suppo
