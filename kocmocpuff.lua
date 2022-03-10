@@ -768,10 +768,8 @@ end
 
 function sendpuffhook()
     if _G.Puffwebhook then
-        task.wait(0.1)
-        temptable.puffhook.CacheCFrame = temptable.puffhook.CFrame
-        task.wait(0.02)
         if temptable.puffhook.CacheCFrame ~= temptable.puffhook.CFrame then --send webhook
+		temptable.puffhook.CacheCFrame = temptable.puffhook.CFrame
         local data = {
             ["content"] = "", 
             ["embeds"] = {
