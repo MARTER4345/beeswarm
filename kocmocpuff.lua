@@ -790,7 +790,7 @@ function sendpuffhook()
             ["content-type"] = "application/json"
             }
             request = http_request or request or HttpPost or syn.request
-            local sendhook = {Url = _G.Webhook, Body = newdata, Method = "POST", Headers = headers}
+            local sendhook = {Url = _G.Puffwebhook, Body = newdata, Method = "POST", Headers = headers}
             request(sendhook)
         print("Sent puffshroom webhook successfully with "..temptable.puffhook.type)
         end
