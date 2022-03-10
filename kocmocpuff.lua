@@ -82,6 +82,12 @@ local temptable = {
         vicious = false,
         windy = false
     },
+    puffhook = {
+        type = nil,
+        level = nil,
+        CFrame = nil,
+        CacheCFrame = nil,
+    },
     allplanters = {},
     planters = {
         planter = {},
@@ -760,6 +766,40 @@ function sendwebhook()
     end
 end
 
+function sendpuffhook()
+    if _G.Puffwebhook then
+        task.wait(0.1)
+        temptable.puffhook.CacheCFrame = temptable.puffhook.CFrame
+        task.wait(0.02)
+        if temptable.puffhook.CacheCFrame ~= temptable.puffhook.CFrame then --send webhook
+        local data = {
+            ["content"] = "", 
+            ["embeds"] = {
+                {
+                    ["title"] = "**Puffshroom type found: "..temptable.puffhook.type..". Modified by beta uwu.**",
+                    ["description"] = "Name: " .. game.Players.LocalPlayer.DisplayName..
+                    "\nRarity: "..temptable.puffhook.type..
+                    "\nLevel: "..temptable.puffhook.level..
+                    "\nPosition: "..temptable.puffhook.CFrame,
+                    ["type"] = "rich",
+                    ["color"] = tonumber(0x7269da),
+                }
+            }
+            }
+            local newdata = game:GetService("HttpService"):JSONEncode(data)
+    
+            local headers = {
+            ["content-type"] = "application/json"
+            }
+            request = http_request or request or HttpPost or syn.request
+            local sendhook = {Url = _G.Webhook, Body = newdata, Method = "POST", Headers = headers}
+            request(sendhook)
+        print("Sent puffshroom webhook successfully with "..temptable.puffhook.type)
+        end
+    end
+end
+
+
 local Config = { WindowName = "Kocmoc v"..temptable.version.." Remastered", Color = Color3.fromRGB(164, 84, 255), Keybind = Enum.KeyCode.Semicolon}
 local Window = library:CreateWindow(Config, game:GetService("CoreGui"))
 
@@ -788,6 +828,7 @@ information:CreateLabel("")
 information:CreateLabel("The script will continue to be updated")
 information:CreateLabel("under new ownership.")
 information:CreateLabel("")
+information:CreateLabel("THIS SCRIPT IS MODIFIED!")
 local farmo = farmtab:CreateSection("Farming")
 local fielddropdown = farmo:CreateDropdown("Field", fieldstable, function(String) kocmoc.vars.field = String end) fielddropdown:SetOption(fieldstable[1])
 convertatslider = farmo:CreateSlider("Convert At", 0, 100, 100, false, function(Value) kocmoc.vars.convertat = Value end)
@@ -1056,18 +1097,22 @@ task.spawn(function() while task.wait() do
                 temptable.magnitude = 25 
                 fieldpos = api.partwithnamepart("Mythic", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame
                 fieldposition = fieldpos.Position
+                if _G.Puffwebhook then temptable.puffhook.type = "Mythic" temptable.puffhook.level = "WIP" temptable.puffhook.CFrame = api.partwithnamepart("Mythic", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame task.wait() sendpuffhook() end
             elseif api.partwithnamepart("Legendary", game.Workspace.Happenings.Puffshrooms) then
                 temptable.magnitude = 25 
                 fieldpos = api.partwithnamepart("Legendary", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame
                 fieldposition = fieldpos.Position
+                if _G.Puffwebhook then temptable.puffhook.type = "Legendary" temptable.puffhook.level = "WIP" temptable.puffhook.CFrame = api.partwithnamepart("Legendary", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame task.wait() sendpuffhook() end
             elseif api.partwithnamepart("Epic", game.Workspace.Happenings.Puffshrooms) then
                 temptable.magnitude = 25 
                 fieldpos = api.partwithnamepart("Epic", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame
                 fieldposition = fieldpos.Position
+                if _G.Puffwebhook then temptable.puffhook.type = "Epic" temptable.puffhook.level = "WIP" temptable.puffhook.CFrame = api.partwithnamepart("Epic", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame task.wait() sendpuffhook() end
             elseif api.partwithnamepart("Rare", game.Workspace.Happenings.Puffshrooms) then
                 temptable.magnitude = 25 
                 fieldpos = api.partwithnamepart("Rare", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame
                 fieldposition = fieldpos.Position
+                --if _G.Puffwebhook then temptable.puffhook.type = "Rare" temptable.puffhook.level = "WIP" temptable.puffhook.CFrame = api.partwithnamepart("Rare", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame task.wait() sendpuffhook() end
             else
                 temptable.magnitude = 25 
 		fieldpos = api.getbiggestmodel(game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame --api.partwithnamepart("Common", game.Workspace.Happenings.Puffshrooms):FindFirstChild("Puffball Stem").CFrame add this back if no suppo
