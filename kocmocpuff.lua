@@ -767,7 +767,7 @@ function sendwebhook()
 end
 
 function sendpuffhook()
-    if _G.Puffwebhook then
+    if _G.Puffwebhook then --..temptable.puffhook.CFrame
         if temptable.puffhook.CacheCFrame ~= temptable.puffhook.CFrame then --send webhook
 		temptable.puffhook.CacheCFrame = temptable.puffhook.CFrame
         local data = {
@@ -778,7 +778,7 @@ function sendpuffhook()
                     ["description"] = "Name: " .. game.Players.LocalPlayer.DisplayName..
                     "\nRarity: "..temptable.puffhook.type..
                     "\nLevel: "..temptable.puffhook.level..
-                    "\nPosition: "..temptable.puffhook.CFrame,
+                    "\nPosition: broken atm",
                     ["type"] = "rich",
                     ["color"] = tonumber(0x7269da),
                 }
